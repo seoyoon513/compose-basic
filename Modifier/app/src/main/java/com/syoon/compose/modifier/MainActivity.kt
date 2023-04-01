@@ -8,10 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -155,6 +152,7 @@ fun ModifierEx() {
     // Step6 : color 속성으로 background 설정
     Button(
         onClick = {},
+        contentPadding = PaddingValues(0.dp),
         // 해당 속성을 사용해야 버튼의 색을 변경할 수 있음
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.Blue, // M2에서의 속성 이름은 backgroundColor
@@ -168,7 +166,7 @@ fun ModifierEx() {
         Spacer(
             modifier = Modifier.size(ButtonDefaults.IconSpacing)
         )
-        Text(text = "Search")
+        Text(text = "Search") // Text에 별도의 color값을 주면 text만 색이 변경됨
     }
 
     // Step7 : modifier에 padding 추가
