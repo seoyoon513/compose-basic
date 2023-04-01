@@ -25,15 +25,22 @@ class MainActivity : ComponentActivity() {
         setContent {
             ModifierTheme {
                 //ModifierEx()
-                TextWithWarning1(modifier = Modifier.background(Color.Blue)) {}
-                TextWithWarning2(modifier = Modifier.background(Color.Magenta)) {}
-                TextWithWarning3(modifier = Modifier.background(Color.Yellow), callback = {})           }
+                // TextWithWarning1(Modifier) {} // error : name 매개변수 없이 정의 불가능
+                TextWithWarning1("",Modifier) {} // name의 초기화가 무조건 진행되어야 함
+                TextWithWarning1(modifier = Modifier) {} // name을 생략하고 싶으면 modifier(매개변수 이름) 명시
+
+                TextWithWarning2(Modifier.background(Color.Magenta)) {} // name 매개변수 생략 가능
+
+                TextWithWarning3(modifier = Modifier.background(Color.Yellow), callback = {}) // 마지막 파라미터가 함수여야 후행람다식 가능
+            }
         }
     }
 }
 
 @Composable
 fun TextWithWarning1(
+    // 매개변수의 기본값이 있는 경우 호출자는 선택적으로 사용할 수 있다
+    // 그러나 첫 번째 매개변수인 경우 생략할 수 없다 (생략하려면 매개변수 이름을 명시해야 함)
     name: String = "Default",
     modifier: Modifier,
     callback: () -> Unit,
