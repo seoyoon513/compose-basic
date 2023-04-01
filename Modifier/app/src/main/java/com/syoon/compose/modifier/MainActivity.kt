@@ -24,10 +24,45 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ModifierTheme {
-                ModifierEx()
-            }
+                //ModifierEx()
+                TextWithWarning1(modifier = Modifier.background(Color.Blue)) {}
+                TextWithWarning2(modifier = Modifier.background(Color.Magenta)) {}
+                TextWithWarning3(modifier = Modifier.background(Color.Yellow), callback = {})           }
         }
     }
+}
+
+@Composable
+fun TextWithWarning1(
+    name: String = "Default",
+    modifier: Modifier,
+    callback: () -> Unit,
+) {
+    Text(text = "TextWithWarning1! $name", modifier = modifier
+        .background(Color.Yellow)
+        .clickable { callback.invoke() })
+}
+
+@Composable
+fun TextWithWarning2(
+    modifier: Modifier,
+    name: String = "",
+    callback: () -> Unit,
+) {
+    Text(text = "TextWithWarning2! $name", modifier = modifier
+        .background(Color.Yellow)
+        .clickable { callback.invoke() })
+}
+
+@Composable
+fun TextWithWarning3(
+    modifier: Modifier,
+    callback: () -> Unit,
+    name: String = "",
+) {
+    Text(text = "TextWithWarning3! $name", modifier = modifier
+        .background(Color.Yellow)
+        .clickable { callback.invoke() })
 }
 
 @Composable
@@ -183,8 +218,6 @@ fun ModifierEx() {
             text = "Search",
         )
     }
-
-
 }
 
 @Preview(showBackground = true)
