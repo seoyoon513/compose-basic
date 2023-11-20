@@ -36,5 +36,6 @@ Scaffold(/* ... */) { contentPadding ->
 ### 비교 테스트
 - 최상단 컴포저블 함수 Scaffold
 <img src="https://github.com/seoyoon513/compose-basic/assets/110798031/9380a647-ea56-42d4-9ba5-f2ef0c8bcb4a" width="300" >
+
 - 최상단 컴포저블 함수 Column
 <img src="https://github.com/seoyoon513/compose-basic/assets/110798031/1f2642f3-df06-4f76-a567-45018453ba06" width="300" >
